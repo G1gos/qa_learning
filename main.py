@@ -1,16 +1,7 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from selene.support.shared import browser
+from selene import be, have
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hitt, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-#changes
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+browser.open('https://google.com')
+browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
+browser.element('[id="search"]').should(have.text('Selene - User-oriented Web UI browser tests in Python'))
